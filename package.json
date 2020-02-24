@@ -1,0 +1,26 @@
+{
+  "name": "kw-ui",
+  "version": "1.0.0",
+  "description": "这是一个ui框架",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kingsley2036/KW-UI.git"
+  },
+  "keywords": [
+    "vue",
+    "ui"
+  ],
+  "author": "kingsley",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kingsley2036/KW-UI/issues"
+  },
+  "homepage": "https://github.com/kingsley2036/KW-UI#readme",
+  "devDependencies": {
+    "parcel-bundler": "^1.12.4"
+  }
+}
