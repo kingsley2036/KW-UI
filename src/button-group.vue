@@ -6,7 +6,16 @@
 
 <script>
     export default {
+        mounted() {
+            for(let node of this.$el.children){
 
+                let name=node.nodeName.toLowerCase()
+
+                if(name!=='button'){
+                    console.warn(`g-button-group的子元素应该是g-button,但你写的是${name}`)
+                }
+            }
+        }
     }
 </script>
 
@@ -16,7 +25,9 @@
         vertical-align: middle;
         .g-button{
             border-radius: 0;
-            margin-left: -1px;
+            &:not(:first-child){
+                margin-left: -1px;
+            }
             &:hover{
                 z-index: 1;
                 position: relative;
