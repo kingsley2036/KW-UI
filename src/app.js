@@ -1,10 +1,11 @@
 import Vue from 'vue'
-import button from "./button";
-import icon from "./icon";
-import buttonGroup  from "./button-group";
-Vue.component('g-button',button);
-Vue.component('g-icon',icon);
-Vue.component('g-button-group',buttonGroup);
+import Button from "./button.vue";
+import Icon from "./icon.vue";
+import ButtonGroup  from "./button-group.vue";
+import chai from 'chai'
+Vue.component('g-button',Button);
+Vue.component('g-icon',Icon);
+Vue.component('g-button-group',ButtonGroup);
 new Vue({
     el:'#app',
     data:{
@@ -13,3 +14,72 @@ new Vue({
         loading3:false,
     }
 });
+
+const expect=chai.expect;
+
+
+{
+    const Constructor=Vue.extend(Button);
+    const VM=new Constructor({
+        propsData:{
+            icon:'settings'
+        }
+    });
+    VM.$mount("#test");
+    let userElement=VM.$el.querySelector('use');
+    let href=userElement.getAttribute('xlink:href');
+    expect(href).to.eq('#i-settings');
+    VM.$el.remove();
+    VM.$destroy()
+
+}
+{
+    const loadingConstructor=Vue.extend(Button);
+    const VM=new loadingConstructor({
+        propsData:{
+            icon:'settings',
+            isLoading:true
+        }
+    });
+
+    VM.$mount('#loading');
+    let userElement=VM.$el.querySelector('use');
+    let href=userElement.getAttribute('xlink:href');
+    expect(href).to.eq('#i-loading');
+    VM.$el.remove();
+    VM.$destroy()
+
+}
+{   let div=document.createElement('div');
+    document.body.appendChild(div);
+    const Constructor=Vue.extend(Button);
+    const left=new Constructor({
+        propsData:{
+            icon:'settings',
+        }
+    });
+
+    left.$mount(div);
+    let svg=left.$el.querySelector('svg');
+    let {order}=window.getComputedStyle(svg);
+    expect(order).to.eq('1');
+    left.$el.remove();
+    left.$destroy()
+}
+{   let div=document.createElement('div');
+    document.body.appendChild(div);
+    const Constructor=Vue.extend(Button);
+    const right=new Constructor({
+        propsData:{
+            icon:'settings',
+            iconPosition:'right'
+        }
+    });
+
+    right.$mount(div);
+    let svg=right.$el.querySelector('svg');
+    let {order}=window.getComputedStyle(svg);
+    expect(order).to.eq('2');
+    right.$el.remove();
+    right.$destroy()
+}
