@@ -16,7 +16,8 @@ new Vue({
 });
 
 const expect=chai.expect;
-
+import spies from 'chai-spies'
+chai.use(spies)
 
 {
     const Constructor=Vue.extend(Button);
@@ -82,4 +83,21 @@ const expect=chai.expect;
     expect(order).to.eq('2');
     right.$el.remove();
     right.$destroy()
+}
+{
+    const Constructor=Vue.extend(Button);
+    const VM=new Constructor({
+        propsData:{
+            icon:'settings',
+
+        }
+    });
+    VM.$mount();
+    let spy=chai.spy(function () {
+    });
+    VM.$on('click',spy);
+    let button=VM.$el;
+    button.click();
+    expect(spy).to.have.been.called()
+
 }
