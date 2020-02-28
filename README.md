@@ -1,4 +1,5 @@
 ##  KW UI 一个基于Vue的UI框架
+[![Build Status](https://travis-ci.com/kingsley2036/KW-UI.svg?branch=master)](https://travis-ci.com/kingsley2036/KW-UI)
 #### 介绍
 使用Vue构建的UI框架
 #### 安装
