@@ -41,6 +41,7 @@
     "vue-template-compiler": "^2.6.11"
   },
   "dependencies": {
+    "git-open": "^2.1.0",
     "vue": "^2.6.11",
     "vue-hot-reload-api": "^2.3.4"
   },
