@@ -1,6 +1,7 @@
 <template>
     <div class="wrapper" :class="{error:error}">
-        <input :value="value" type="text" :disabled="disabled" :readonly="readonly">
+        <input :value="value" type="text" :disabled="disabled" :readonly="readonly"
+               @change="$emit('change',$event)">
         <template v-if="error">
 <!--            <g-icon name="settings"></g-icon>-->
             <icon name="error1" class="icon-error"></icon>
@@ -12,7 +13,7 @@
 <script>
     import Icon from './icon.vue'
     export default {
-        name: "input",
+        name: "kwInput",
         components:{
             icon:Icon
         },
