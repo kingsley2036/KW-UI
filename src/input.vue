@@ -3,8 +3,8 @@
         <input :value="value" type="text" :disabled="disabled" :readonly="readonly">
         <template v-if="error">
 <!--            <g-icon name="settings"></g-icon>-->
-            <icon name="error"></icon>
-            <span>{{error}}</span>
+            <icon name="error1" class="icon-error"></icon>
+            <span class="errorMessage">{{error}}</span>
         </template>
     </div>
 </template>
@@ -48,6 +48,7 @@
         display: inline-flex;
         justify-content: center;
         align-items: center;
+        :not(:last-child){margin-right: .5em}
         input{
             height:$height ;
             border: 1px solid $border-color;
@@ -71,7 +72,12 @@
             input{
                 border-color: $red;
             }
-
+        }
+        & .icon-error{
+            fill:$red;
+        }
+        & .errorMessage{
+            color:$red;
         }
     }
 
