@@ -27,18 +27,24 @@
         #app {
             margin: 20px;
         }
+        .distance{
+            margin-bottom: 20px
+        }
+
 
     </style>
 
 </head>
 <body>
 <div id="app">
-    <div style="margin-bottom: 20px">
-        <g-input value="" ></g-input>
+    <div class="distance" >
         <g-input value="张三" disabled></g-input>
         <g-input value="李四" readonly></g-input>
         <g-input value="王五" error="姓名不能为空" @change="inputChange"></g-input>
-
+    </div>
+    <div  class="distance">
+        <g-input v-model="message" ></g-input>
+        <span  class="distance">{{message}}</span>
     </div>
 
     <g-button :is-loading="loading1" @click="loading1=!loading1">

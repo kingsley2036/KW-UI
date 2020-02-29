@@ -65,16 +65,19 @@ describe('Input', () => {
         afterEach(()=>{
             vm.$destroy()
         })
-        it('支持change事件',()=>{
+        it('支持事件',()=>{
             ['change','input','focus','blur'].forEach((eventName)=>{
                 vm = new Constructor({}).$mount();
                 const callBack=sinon.fake();
                 vm.$on(eventName,callBack)
                 let event=new Event(eventName)
+                Object.defineProperty(event,'target',{value:{value:'hi'}})
                 let inputElement=vm.$el.querySelector('input')
                 inputElement.dispatchEvent(event)
-                console.log(eventName)
-                expect(callBack).to.have.been.calledWith(event)
+                console.log(eventName);
+                console.log(event.target);
+                console.log(event.target.value);
+                expect(callBack).to.have.been.calledWith('hi')
             })
 
         })
