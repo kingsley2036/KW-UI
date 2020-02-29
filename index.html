@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>KW UI</title>
     <style>
-        *,*::after,*::before {
+        *, *::after, *::before {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
@@ -33,14 +33,21 @@
 </head>
 <body>
 <div id="app">
-    <g-input></g-input>
+    <div style="margin-bottom: 20px">
+        <g-input value="" ></g-input>
+        <g-input value="张三" disabled></g-input>
+        <g-input value="李四" readonly></g-input>
+        <g-input value="王五" error="姓名不能为空"></g-input>
+
+    </div>
+
     <g-button :is-loading="loading1" @click="loading1=!loading1">
         按钮
     </g-button>
-    <g-button icon="settings" :is-loading="loading2"  @click="loading2=!loading2">
+    <g-button icon="settings" :is-loading="loading2" @click="loading2=!loading2">
         按钮
     </g-button>
-    <g-button icon="settings" icon-position="right" :is-loading="loading3"  @click="loading3=!loading3">
+    <g-button icon="settings" icon-position="right" :is-loading="loading3" @click="loading3=!loading3">
         按钮
     </g-button>
     <g-button-group>
