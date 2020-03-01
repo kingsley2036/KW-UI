@@ -1,6 +1,9 @@
 <template>
-    <div class="col" :class="[`col-${span}`, offset &&`offset-${offset}`]">
-        <slot></slot>
+    <div class="col" :class="[span && `col-${span}`, offset &&`offset-${offset}`]"
+    :style="{paddingLeft:+gutter/2+'px',paddingRight:+gutter/2+'px'}">
+        <div style="border: 1px solid green;height: 30px;">
+            <slot></slot>
+        </div>
     </div>
 </template>
 
@@ -14,6 +17,12 @@
             offset:{
                 type:[Number,String]
             }
+
+        },
+        data(){
+            return {
+                gutter:0
+            }
         }
     }
 </script>
@@ -22,8 +31,8 @@
     .col {
         width: 50%;
         height: 50px;
-        background: grey;
-        border: 1px solid red;
+        /*background: grey;*/
+        /*border: 1px solid red;*/
         $class-prefix: col-;
         @for $n from 1 through 24 {
             &.#{$class-prefix}#{$n} {
