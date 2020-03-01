@@ -14,7 +14,6 @@
         },
         mounted() {
            let  children=this.$children;
-            console.log(children);
             children.forEach((vm)=>{
                 vm.$data.gutter=this.gutter
             })
