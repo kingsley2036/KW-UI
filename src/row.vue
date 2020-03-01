@@ -14,10 +14,16 @@
         },
         mounted() {
            let  children=this.$children;
-            console.log(children)
+            console.log(children);
             children.forEach((vm)=>{
                 vm.$data.gutter=this.gutter
             })
+        },
+        computed:{
+            colStyle(){
+                let {gutter}=this;
+                return {marginLeft:-gutter/2+'px',marginRight:-gutter/2+'px'}
+            }
         }
     }
 </script>
