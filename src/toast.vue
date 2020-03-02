@@ -1,7 +1,9 @@
 <template>
-    <div class="toast">
-        <slot></slot>
-        <span class="line"></span>
+    <div class="toast" ref="wrapper">
+        <div class="message">
+            <slot></slot>
+        </div>
+        <div class="line" ref="line"></div>
         <span class="close" v-if="closeButton" @click="onclickClose">{{closeButton.text}}</span>
     </div>
 </template>
@@ -16,7 +18,7 @@
             },
             delay: {
                 type: Number,
-                default: 10
+                default: 100
             },
             closeButton: {
                 type: Object,
@@ -31,25 +33,33 @@
 
         },
         mounted() {
-            if (this.autoClose) {
-                setTimeout(() => {
-                    this.close()
-                }, this.delay * 1000)
-            }
+           this.updateStyle();
+           this.execAutoClose()
         },
         created(){
-            // console.log( this.closeButton)
+
         },
         methods: {
+            execAutoClose(){
+                if (this.autoClose) {
+                    setTimeout(() => {
+                        this.close()
+                    }, this.delay * 1000)
+                }
+            },
+            updateStyle(){
+                this.$nextTick(()=>{
+                    this.$refs.line.style.height=this.$refs.wrapper.getBoundingClientRect().height+'px'
+                })
+            },
             close() {
                 this.$el.remove();
-                this.$destroy()
+                this.$destroy();
             },
             onclickClose(){
                 this.close();
                 if( this.closeButton&& typeof  this.closeButton.callback==='function'){
                     this.closeButton.callback()
-
                 }
             }
         }
@@ -58,7 +68,7 @@
 
 <style scoped lang="scss">
     $font-size: 14px;
-    $toast-height: 40px;
+    $toast-min-height: 40px;
     $toast-bg: rgba(0, 0, 0, 0.75);
     .toast {
         position: fixed;
@@ -67,7 +77,7 @@
         /*border: 1px solid red;*/
         transform: translateX(-50%);
         font-size: $font-size;
-        height: $toast-height;
+        min-height:$toast-min-height;
         background: $toast-bg;
         border-radius: 4px;
         box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.5);
@@ -78,11 +88,15 @@
 
         & .line {
             height: 100%;
-            border: 1px solid #666666;
+            border-left: 1px solid #666666;
             margin-left: 16px;
         }
         & .close{
             padding-left: 16px;
+            flex-shrink: 0;
+        }
+        .message{
+            padding: 8px 0;
         }
     }
 </style>
