@@ -1,10 +1,12 @@
 <template>
-    <div class="toast" ref="wrapper" :class="toastclass">
-        <div class="message">
-            <slot></slot>
+    <div class="wrapper" :class="toastclass">
+        <div class="toast" ref="toast" >
+            <div class="message">
+                <slot></slot>
+            </div>
+            <div class="line" ref="line"></div>
+            <span class="close" v-if="closeButton" @click="onclickClose">{{closeButton.text}}</span>
         </div>
-        <div class="line" ref="line"></div>
-        <span class="close" v-if="closeButton" @click="onclickClose">{{closeButton.text}}</span>
     </div>
 </template>
 
@@ -62,7 +64,7 @@
             },
             updateStyle(){
                 this.$nextTick(()=>{
-                    this.$refs.line.style.height=this.$refs.wrapper.getBoundingClientRect().height+'px'
+                    this.$refs.line.style.height=this.$refs.toast.getBoundingClientRect().height+'px'
                 })
             },
             close() {
@@ -83,11 +85,60 @@
     $font-size: 14px;
     $toast-min-height: 40px;
     $toast-bg: rgba(0, 0, 0, 0.75);
-    .toast {
+    @keyframes fade_in {
+        0%{
+            opacity:0;
+        }
+        100%{
+            opacity:1;
+        }
+    }
+    @keyframes slide_up {
+        0%{
+            opacity:0;
+            transform: translateY(100%);
+        }
+        100%{
+            opacity:1;
+            transform: translateY(0%);
+        }
+    }
+    @keyframes slide_down {
+        0%{
+            opacity:0;
+            transform: translateY(-100%);
+        }
+        100%{
+            opacity:1;
+            transform: translateY(0%);
+        }
+    }
+    .wrapper{
         position: fixed;
         left: 50%;
-        /*border: 1px solid red;*/
         transform: translateX(-50%);
+        &.position-top{
+            top: 0;
+            .toast{
+                animation: slide_down 300ms;
+            }
+        }
+        &.position-bottom{
+            bottom: 0;
+            .toast{
+                animation: slide_up 300ms;
+            }
+        }
+        &.position-middle{
+            top: 50%;
+            transform: translateY(-50%) translateX(-50%);
+            .toast{
+                animation: fade_in 300ms;
+            }
+        }
+    }
+    .toast {
+
         font-size: $font-size;
         min-height:$toast-min-height;
         background: $toast-bg;
@@ -97,7 +148,6 @@
         color: #fff;
         display: flex;
         align-items: center;
-
         & .line {
             height: 100%;
             border-left: 1px solid #666666;
@@ -110,15 +160,6 @@
         .message{
             padding: 8px 0;
         }
-        &.position-top{
-            top: 0;
-        }
-        &.position-bottom{
-            bottom: 0;
-        }
-        &.position-middle{
-            top: 50%;
-            transform: translateY(-50%) translateX(-50%);
-        }
+
     }
 </style>

@@ -25,23 +25,24 @@ new Vue({
         message:'赵五'
     },
     created(){
-        // this.$toast('我是信息233',{
-        //     position:'middle',
-        //     closeButton:{
-        //         text: '关闭',
-        //         callback() {
-        //             console.log('用户知道了')
-        //         }
-        //     }
-        // })
+
     },
     methods:{
         inputChange(e){
             console.log(e);
         },
-        showToast(){
+        show1(){
+            this.showToast('top')
+        },
+        show2(){
+            this.showToast('middle')
+        },
+        show3(){
+            this.showToast('bottom')
+        },
+        showToast(position){
             this.$toast('我是信息',{
-                position:'bottom',
+                position,
                 closeButton:{
                     text: '关闭',
                     callback() {
