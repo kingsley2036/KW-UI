@@ -1,5 +1,5 @@
 <template>
-    <div class="toast" ref="wrapper">
+    <div class="toast" ref="wrapper" :class="toastclass">
         <div class="message">
             <slot></slot>
         </div>
@@ -29,6 +29,13 @@
                         }
                     }
                 }
+            },
+            position:{
+                type:String,
+                default:'top',
+                validator(value){
+                    return ['top','bottom','middle'].indexOf(value)>=0
+                }
             }
 
         },
@@ -38,6 +45,12 @@
         },
         created(){
 
+        },
+        computed:{
+            toastclass(){
+                console.log(this.position);
+                return {[`position-${this.position}`]:true}
+            }
         },
         methods: {
             execAutoClose(){
@@ -72,7 +85,6 @@
     $toast-bg: rgba(0, 0, 0, 0.75);
     .toast {
         position: fixed;
-        top: 0;
         left: 50%;
         /*border: 1px solid red;*/
         transform: translateX(-50%);
@@ -97,6 +109,16 @@
         }
         .message{
             padding: 8px 0;
+        }
+        &.position-top{
+            top: 0;
+        }
+        &.position-bottom{
+            bottom: 0;
+        }
+        &.position-middle{
+            top: 50%;
+            transform: translateY(-50%) translateX(-50%);
         }
     }
 </style>

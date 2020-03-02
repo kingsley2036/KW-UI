@@ -25,12 +25,15 @@ new Vue({
         message:'赵五'
     },
     created(){
-        this.$toast('我是信息',{
-            text: '关闭',
-            callback() {
-                console.log('用户知道了')
-            }
-        })
+        // this.$toast('我是信息233',{
+        //     position:'middle',
+        //     closeButton:{
+        //         text: '关闭',
+        //         callback() {
+        //             console.log('用户知道了')
+        //         }
+        //     }
+        // })
     },
     methods:{
         inputChange(e){
@@ -38,9 +41,12 @@ new Vue({
         },
         showToast(){
             this.$toast('我是信息',{
-                text: '关闭',
-                callback() {
-                    console.log('用户知道了')
+                position:'bottom',
+                closeButton:{
+                    text: '关闭',
+                    callback() {
+                        console.log('用户知道了')
+                    }
                 }
             })
         }
