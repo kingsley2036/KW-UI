@@ -16,8 +16,8 @@ export default {
             if(currentToast){
                 currentToast.close()
             }
-            currentToast=createToast(vue,message,toastProps)
-            console.log(currentToast)
+            currentToast=createToast(vue,message,toastProps);
+
         }
     }
 }

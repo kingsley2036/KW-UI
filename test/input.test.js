@@ -74,9 +74,7 @@ describe('Input', () => {
                 Object.defineProperty(event,'target',{value:{value:'hi'}})
                 let inputElement=vm.$el.querySelector('input')
                 inputElement.dispatchEvent(event)
-                console.log(eventName);
-                console.log(event.target);
-                console.log(event.target.value);
+
                 expect(callBack).to.have.been.calledWith('hi')
             })
 

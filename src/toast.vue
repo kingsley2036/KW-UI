@@ -20,15 +20,14 @@
             },
             delay: {
                 type: Number,
-                default: 100
+                default: 5
             },
             closeButton: {
                 type: Object,
                 default() {
                     return {
-                        text: '',
-                        callback: () => {
-                        }
+                        text: '关闭',
+                        callback: undefined
                     }
                 }
             },
@@ -50,16 +49,17 @@
         },
         computed:{
             toastclass(){
-                console.log(this.position);
                 return {[`position-${this.position}`]:true}
             }
         },
         methods: {
             execAutoClose(){
+                let time=this.delay * 1000;
+
                 if (this.autoClose) {
                     setTimeout(() => {
                         this.close()
-                    }, this.delay * 1000)
+                    }, time)
                 }
             },
             updateStyle(){
@@ -73,9 +73,11 @@
             },
             onclickClose(){
                 this.close();
-                if( this.closeButton&& typeof  this.closeButton.callback==='function'){
-                    this.closeButton.callback()
+                if( this.closeButton && typeof  this.closeButton.callback==='function'){
+                    console.log('执行了回调');
+                    this.closeButton.callback();
                 }
+
             }
         }
     }

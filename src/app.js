@@ -25,7 +25,7 @@ new Vue({
         message:'赵五'
     },
     created(){
-
+        this.showToast('top')
     },
     methods:{
         inputChange(e){
@@ -43,9 +43,11 @@ new Vue({
         showToast(position){
             this.$toast('我是信息',{
                 position,
+                delay:2,
+                autoClose:true,
                 closeButton:{
-                    text: '关闭',
-                    callback() {
+                    text: '关闭了',
+                    callback:()=> {
                         console.log('用户知道了')
                     }
                 }
