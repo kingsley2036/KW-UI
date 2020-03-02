@@ -27,7 +27,7 @@ describe('toast', () => {
                 expect(document.body.contains(vm.$el)).to.eq(false);
                 done()
             },1900)
-        })
+        });
         it('接受closeButton',()=>{
             const callBack=sinon.fake();
             let Constructor=Vue.extend(Toast);
@@ -42,12 +42,12 @@ describe('toast', () => {
             }).$mount();
             console.log(vm.$el);
             let closeButton=vm.$el.querySelector('.close');
-            console.log(closeButton)
+            console.log(closeButton);
             expect(closeButton.innerText).to.eq('关闭吧');
-            closeButton.click()
-
-
-
+            setTimeout(()=>{
+                closeButton.click();
+                expect(callBack).to.have.been.called;
+            },200)
         })
     })
 
