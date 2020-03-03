@@ -21,7 +21,6 @@
 .tabs-head{
     display: flex;
     justify-content: flex-start;
-    align-items: center;
     height: 40px;
     border: 1px solid red;
     > .actions-wrapper{
