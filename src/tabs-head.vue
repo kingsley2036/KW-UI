@@ -15,8 +15,8 @@
         mounted() {
             this.eventBus.$on('update:selected',(item,vm)=>{
                 let {width,left}=vm.$el.getBoundingClientRect();
-                this.$refs.line.style.width=`${width-10}px`;
-                this.$refs.line.style.left=`${left-16}px`
+                this.$refs.line.style.width=`${width}px`;
+                this.$refs.line.style.left=`${left}px`
             })
         },
     }
@@ -27,10 +27,13 @@
     display: flex;
     justify-content: flex-start;
     height: 40px;
-    /*border: 1px solid red;*/
+    border-bottom: 1px solid #ddd;
     position: relative;
     > .actions-wrapper{
         margin-left: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
     & .line{
         /*width: 50px;*/
@@ -38,9 +41,6 @@
         bottom: 0;
         border-bottom:2px solid blue;
         transition: all 350ms;
-
-
-
     }
 }
 </style>
