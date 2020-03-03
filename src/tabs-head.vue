@@ -34,6 +34,14 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        margin-right: 20px;
+        button{
+            padding: 0.2em 1em;
+            -webkit-border-radius: 3px;
+            -moz-border-radius: 3px;
+            border-radius: 3px;
+            border: 1px solid #bbbbbb;
+        }
     }
     & .line{
         /*width: 50px;*/
