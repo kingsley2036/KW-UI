@@ -2,7 +2,7 @@
     <button @click="$emit('click')" class="g-button" :class="{[`icon-${iconPosition}`]:true}">
         <g-icon class="icon" v-if="icon && !isLoading" :name='icon'></g-icon>
         <g-icon v-if="isLoading" class="icon loading" name='loading'></g-icon>
-        <div class="content kingsley">
+        <div class="content">
             <slot></slot>
         </div>
     </button>
@@ -15,7 +15,7 @@
     export default {
         props: {
             'icon':{
-                type:String,
+                // type:String,
             },
             'is-loading':{
               type:Boolean,

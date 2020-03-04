@@ -5,9 +5,12 @@
 </template>
 
 <script>
-    import './svg'
+    // import './svg.js'
     export default {
-        props:['name']
+        props:['name'],
+        mounted() {
+            import('./svg.js').then(icon=>{})
+        }
     }
 </script>
 

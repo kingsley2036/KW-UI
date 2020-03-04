@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Button from "./button.vue";
-import Icon from "./icon.vue";
+// import Icon from "./icon.vue";
 import ButtonGroup  from "./button-group.vue";
 import chai from 'chai'
 import Input from './input'
@@ -15,13 +15,12 @@ import tabsItem from './tabs-item'
 import tabsBody from './tabs-body'
 import tabsPane from './tabs-pane'
 Vue.component('g-button',Button);
-Vue.component('g-icon',Icon);
+// Vue.component('g-icon',Icon);
 Vue.component('g-button-group',ButtonGroup);
 Vue.component('g-input',Input);
 Vue.component('g-row',Row);
 Vue.component('g-col',Col);
 Vue.component('g-toast',Toast);
-
 Vue.component('g-tabs',Tabs);
 Vue.component('g-tabs-head',tabsHead);
 Vue.component('g-tabs-item',tabsItem);
