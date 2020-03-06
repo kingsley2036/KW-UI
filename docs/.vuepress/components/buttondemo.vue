@@ -9,7 +9,9 @@
         <g-button icon="settings">默认按钮</g-button>
 <!--        <g-button :isLoading="true">默认按钮</g-button>-->
         <g-button disabled>默认按钮</g-button>
-
+        <g-button icon="praise" icon-position="right"  >
+            按钮
+        </g-button>
         <p>
             <strong>代码</strong>
         </p>
@@ -29,6 +31,9 @@
           <g-button icon="settings">默认按钮</g-button>
 
           <g-button disabled>默认按钮</g-button>
+           <g-button icon="praise" icon-position="right"  >
+            按钮
+            </g-button>
       `.replace(/^ {8}/gm, '').trim()
             }
         }

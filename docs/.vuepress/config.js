@@ -1,5 +1,6 @@
 module.exports = {
     title: 'KW-UI',
+    base:'/KW-UI/',
     description: 'Just playing around',
     themeConfig: {
 

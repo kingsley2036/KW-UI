@@ -1,16 +1,14 @@
 <template>
     <svg  class="g-icon" aria-hidden="true">
-        <use :xlink:href=`#i-${name}`></use>
+        <use :xlink:href="`#i-${name}`"></use>
     </svg>
 </template>
 
 <script>
-    // import './svg.js'
+    import './svg.js'
     export default {
         props:['name'],
-        mounted() {
-            import('./svg.js').then(icon=>{})
-        }
+
     }
 </script>
 
