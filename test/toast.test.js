@@ -21,9 +21,7 @@ describe('toast', () => {
                     delay:1
                 }
             }).$mount(div);
-            // vm.$on('close',()=>{//     console.log('异步');//     expect(document.body.contains(vm.$el)).to.eq(false);//     done()// })
             setTimeout(()=>{
-                console.log('异步');
                 expect(document.body.contains(vm.$el)).to.eq(false);
                 done()
             },1900)
@@ -40,9 +38,9 @@ describe('toast', () => {
                     }
                 }
             }).$mount();
-            console.log(vm.$el);
+
             let closeButton=vm.$el.querySelector('.close');
-            console.log(closeButton);
+
             expect(closeButton.innerText).to.eq('关闭吧');
             setTimeout(()=>{
                 closeButton.click();
