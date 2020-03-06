@@ -12,7 +12,7 @@
         let array=Object.keys(value);
         let valid=false;
         array.forEach(item=>{
-            console.log(item);
+            // console.log(item);
             valid = ['span', 'offset'].includes(item);
         });
         return valid;
@@ -43,12 +43,20 @@
                 type:Object,
                 validator
             },
+            'fuck-me':{
+                type:String
+            }
+
 
         },
         data(){
             return {
                 gutter:0
             }
+        },
+        created(){
+
+
         },
         computed:{
             colStyle(){
