@@ -8,14 +8,18 @@ import Row from './row'
 import Col from './col'
 import Toast from './toast'
 import Plugin from './plugin.js'
-
+import layout from "./layout";
+import content from "./content";
+import footer from "./footer";
+import sider from "./sider";
+import header from "./header";
 import Tabs from './tabs'
 import tabsHead from './tabs-head'
 import tabsItem from './tabs-item'
 import tabsBody from './tabs-body'
 import tabsPane from './tabs-pane'
+
 Vue.component('g-button',Button);
-// Vue.component('g-icon',Icon);
 Vue.component('g-button-group',ButtonGroup);
 Vue.component('g-input',Input);
 Vue.component('g-row',Row);
@@ -26,6 +30,12 @@ Vue.component('g-tabs-head',tabsHead);
 Vue.component('g-tabs-item',tabsItem);
 Vue.component('g-tabs-body',tabsBody);
 Vue.component('g-tabs-pane',tabsPane);
+
+Vue.component('g-layout',layout);
+Vue.component('g-header',header);
+Vue.component('g-footer',footer);
+Vue.component('g-content',content);
+Vue.component('g-sider',sider);
 Vue.use(Plugin);
 new Vue({
     el:'#app',
