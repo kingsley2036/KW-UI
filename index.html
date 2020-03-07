@@ -92,16 +92,17 @@
 <!--        </g-layout>-->
 <!--    </g-layout>-->
 
-    <g-collapse selected="1" style="margin-top: 20px;width: 500px;margin-left: 100px" single>
+    <g-collapse :selected.sync="selectedTab" style="margin-top: 20px;width: 500px;margin-left: 100px" single>
         <g-collapse-item title="标题1" name="1">
-            内容1
+            内容111
         </g-collapse-item>
         <g-collapse-item title="标题2" name="2">
-            内容2
+            内容222222
         </g-collapse-item>
         <g-collapse-item title="标题3" name="3">
-            内容3
+            内容333333333333333
         </g-collapse-item>
+        ----{{selectedTab}}
     </g-collapse>
 </div>
 <script src="./src/app.js"></script>
