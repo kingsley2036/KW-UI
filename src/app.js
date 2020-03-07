@@ -18,6 +18,8 @@ import tabsHead from './tabs-head'
 import tabsItem from './tabs-item'
 import tabsBody from './tabs-body'
 import tabsPane from './tabs-pane'
+import collapse from "./collapse.vue";
+import collapseItem from './collapse-item.vue'
 
 Vue.component('g-button',Button);
 Vue.component('g-button-group',ButtonGroup);
@@ -36,6 +38,8 @@ Vue.component('g-header',header);
 Vue.component('g-footer',footer);
 Vue.component('g-content',content);
 Vue.component('g-sider',sider);
+Vue.component('g-collapse',collapse);
+Vue.component('g-collapse-item',collapseItem);
 Vue.use(Plugin);
 new Vue({
     el:'#app',
