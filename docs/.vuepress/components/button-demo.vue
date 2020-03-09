@@ -6,12 +6,10 @@
         </p>
         <g-button>默认按钮</g-button>
 
-        <g-button icon="settings">默认按钮</g-button>
-<!--        <g-button :isLoading="true">默认按钮</g-button>-->
-        <g-button disabled>默认按钮</g-button>
-        <g-button icon="praise" icon-position="right"  >
-            按钮
-        </g-button>
+        <g-button icon="settings">图标按钮</g-button>
+        <g-button :isLoading="true">加载按钮</g-button>
+        <g-button disabled>禁用按钮</g-button>
+
         <p>
             <strong>代码</strong>
         </p>
@@ -20,20 +18,20 @@
 </template>
 <script>
     import Button from '../../../src/button.vue'
+    import icon from "../../../src/icon";
     export default {
         components: {
-            'g-button': Button
+            'g-button': Button,
+            'g-icon':icon
         },
         data () {
             return {
                 content: `
           <g-button>默认按钮</g-button>
-          <g-button icon="settings">默认按钮</g-button>
+          <g-button icon="settings">图标按钮</g-button>
+          <g-button :isLoading="true">加载按钮</g-button>
+          <g-button disabled>禁用按钮</g-button>
 
-          <g-button disabled>默认按钮</g-button>
-           <g-button icon="praise" icon-position="right"  >
-            按钮
-            </g-button>
       `.replace(/^ {8}/gm, '').trim()
             }
         }

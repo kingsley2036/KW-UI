@@ -6,12 +6,20 @@ module.exports = {
 
         sidebar: [{
             title: '入门',
-            children: ['/',
-                '/install/',]
+            children: [
+                '/install/',
+            '/install/quickStart.md']
         },
             {
                 title: '组件',
-                children: [ '/components/button.md']
+                children: [ '/components/button.md',
+                    '/components/tabs.md',
+                    '/components/toast.md',
+                    '/components/input.md',
+                    '/components/collapse.md',
+                    '/components/grid.md',
+                    '/components/layout.md',
+                ]
             }
         ]
     }

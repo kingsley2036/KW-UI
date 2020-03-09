@@ -82,7 +82,7 @@
             }
         }
         & .content{
-            padding:8px ;
+            padding:12px ;
         }
 
 

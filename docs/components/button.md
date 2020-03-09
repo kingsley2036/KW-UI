@@ -2,10 +2,10 @@
 title:button
 ---
 
-# button
-这是一个按钮
+# 按钮
+
 <ClientOnly>
- <buttondemo></buttondemo>
+ <button-demo></button-demo>
 </ClientOnly>
 
 
