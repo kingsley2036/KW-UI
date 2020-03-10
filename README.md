@@ -8,6 +8,25 @@
 *,*::before,*::after{box-sizing:border-box};
 IE8以上浏览器支持此样式
 ``` 
+```
+npm install kw-ui
+```
+或
+```
+yarn add kw-ui
+```
 #### 开始使用
-#### 
+## hello world
+```js
+import {Button} from 'kw-ui'
+import Vue from 'vue'
+
+new Vue({
+  el: '#app',
+  components: {
+    'g-button':Button
+  }
+})
+```
+
 ####  作者:kingsley
