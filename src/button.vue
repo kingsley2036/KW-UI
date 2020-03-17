@@ -14,7 +14,7 @@
     Vue.component('g-icon',Icon);
     export default {
         props: {
-            'icon':{
+            icon:{
                 // type:String,
             },
             'is-loading':{
