@@ -1,9 +1,11 @@
 <template>
-    <div class="popover" @click="toggle">
-        <div v-if="visible" class="content-wrapper">
+    <div class="popover" @click.stop="toggle">
+        <div ref="contentWrapper" v-if="visible" class="content-wrapper" @click.stop>
             <slot name="content"></slot>
         </div>
-        <slot></slot>
+        <span ref="triggerWrapper">
+            <slot></slot>
+        </span>
     </div>
 </template>
 
@@ -18,8 +20,27 @@
         methods:{
             toggle(){
                 this.visible=!this.visible;
-                console.log(this.visible)
+                console.log(this.visible);
+                if(this.visible===true){
+
+                    this.$nextTick(()=>{
+                       document.body.appendChild(this.$refs.contentWrapper);
+                        let {width,height,top,left}=this.$refs.triggerWrapper.getBoundingClientRect();
+
+                        this.$refs.contentWrapper.style.left=left+window.pageXOffset+'px';
+                        this.$refs.contentWrapper.style.top=top+window.pageYOffset+'px';
+                        let eventHandler=()=>{
+                            this.visible=false;
+                            document.removeEventListener('click',eventHandler)
+                        };
+                    document.addEventListener('click',eventHandler)
+                    })
+                }
+
             }
+        },
+        mounted() {
+            // console.log(this.$refs)
         }
     }
 </script>
@@ -29,14 +50,11 @@
     display: inline-block;
     vertical-align: top;
     position: relative;
-
-    .content-wrapper{
-        position: absolute;
-        bottom: 100%;
-        border: 1px solid red;
-        left: 0;
-        box-shadow: 0 0 3px rgb(0,0,0,0.5);
-    }
-
+}
+.content-wrapper{
+    position: absolute;
+    border: 1px solid red;
+    box-shadow: 0 0 3px rgb(0,0,0,0.5);
+    transform: translateY(-100%);
 }
 </style>
