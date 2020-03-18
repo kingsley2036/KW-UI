@@ -65,8 +65,8 @@ new Vue({
                 }
             })
         },
-        show(){
-
+        yyy(){
+            console.log('用户自定义点击')
         }
 
     }

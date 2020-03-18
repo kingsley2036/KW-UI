@@ -19,6 +19,7 @@ module.exports = {
                     '/components/collapse.md',
                     '/components/grid.md',
                     '/components/layout.md',
+                    '/components/popover.md',
                 ]
             }
         ]
