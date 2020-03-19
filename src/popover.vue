@@ -1,5 +1,5 @@
 <template>
-    <div class="popover" @click="toggle" ref="popover">
+    <div class="popover"  ref="popover">
         <div ref="contentWrapper" v-show="visible" class="content-wrapper"
         :class="{[`position-${position}`]:true}">
             <slot name="content"></slot>
@@ -20,11 +20,51 @@
                 validator(value){
                    return ['top','bottom','left','right'].indexOf(value)>=0
                 }
+            },
+            trigger:{
+                type:String,
+                default:'click',
+                validator(value){
+                    return ['click','hover'].indexOf(value)>=0
+                }
             }
         },
         data(){
             return {
                 visible:false
+            }
+        },
+        computed:{
+            openEvent(){
+                if (this.trigger==='click'){
+                    return 'click'
+                }else{
+                    return 'mouseenter'
+                }
+            },
+            closeEvent(){
+                if (this.trigger==='click'){
+                    return 'click'
+                }else{
+                    return 'mouseleave'
+                }
+            }
+        },
+        mounted(){
+            if (this.trigger==='click'){
+                this.$refs.popover.addEventListener(this.openEvent, this.toggle)
+            }else{
+                this.$refs.popover.addEventListener(this.openEvent,this.open);
+                this.$refs.popover.addEventListener(this.closeEvent, this.close)
+            }
+
+        },
+        destroyed(){
+            if (this.trigger==='click'){
+                this.$refs.popover.removeEventListener(this.openEvent, this.toggle)
+            }else{
+                this.$refs.popover.removeEventListener(this.openEvent,this.open);
+                this.$refs.popover.removeEventListener(this.closeEvent, this.close)
             }
         },
         methods:{
@@ -86,9 +126,7 @@
                 }
             }
         },
-        mounted() {
-            // console.log(this.$refs)
-        }
+
     }
 </script>
 
