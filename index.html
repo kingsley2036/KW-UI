@@ -110,8 +110,9 @@
 <!--    </div>-->
     <div  style="margin-left: 200px;margin-top: 50px;overflow: hidden" >
         <g-popover position="bottom" >
-            <template slot="content">
+            <template slot="content" slot-scope="{close}">
                 <div>popover内容</div>
+                <g-button @click="close">关闭</g-button>
             </template>
             <template>
                 <button>按钮</button>
