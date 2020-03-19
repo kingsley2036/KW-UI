@@ -108,17 +108,16 @@
 <!--    <div style="height: 400px;border: 1px solid red">-->
 
 <!--    </div>-->
-    <div  style="margin-left: 50px;margin-top: 50px;overflow: hidden" >
-        <g-popover>
+    <div  style="margin-left: 200px;margin-top: 50px;overflow: hidden" >
+        <g-popover position="bottom">
             <template slot="content">
                 <div>popover内容</div>
             </template>
             <template>
                 <button>按钮</button>
             </template>
-
         </g-popover>
-        <g-popover>
+        <g-popover position="bottom">
             <template slot="content">
                 <div>popover内容popover内容popover内容popover内容popover内容popover内容popover内容popover内容popover内容popover内容popover内容popover内容popover内容</div>
             </template>
@@ -126,6 +125,22 @@
                 <button>按钮</button>
             </template>
 
+        </g-popover>
+        <g-popover position="left">
+            <template slot="content">
+                <div>popover内容popover内容</div>
+            </template>
+            <template>
+                <button>按钮</button>
+            </template>
+        </g-popover>
+        <g-popover position="right">
+            <template slot="content">
+                <div>popover内容popover内容</div>
+            </template>
+            <template>
+                <button>按钮</button>
+            </template>
         </g-popover>
     </div>
 
