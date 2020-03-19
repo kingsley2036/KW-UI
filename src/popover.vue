@@ -33,20 +33,26 @@
                 const {contentWrapper,triggerWrapper}=this.$refs;
                 let {width,height,top,left}=triggerWrapper.getBoundingClientRect();
                 let {height:height2}=contentWrapper.getBoundingClientRect();
-                if(this.position==='top'){
-                    contentWrapper.style.left=left+window.window.scrollX +'px';
-                    contentWrapper.style.top=top+window.window.scrollY +'px';
-                }else if(this.position==='bottom'){
-                    contentWrapper.style.left=left+window.window.scrollX +'px';
-                    contentWrapper.style.top=top+height+window.window.scrollY +'px';
-                }else if (this.position==='left'){
-                    contentWrapper.style.left=left+window.window.scrollX +'px';
-                    contentWrapper.style.top=top+(height-height2)/2+window.window.scrollY +'px';
-                }else{
-                    contentWrapper.style.left=left+width+window.window.scrollX +'px';
-                    contentWrapper.style.top=top+(height-height2)/2+window.window.scrollY +'px';
-                }
-
+                let positions={
+                    top:{
+                      top:top+window.window.scrollY ,
+                      left:left+window.window.scrollX,
+                    },
+                    bottom:{
+                        top:top+height+window.window.scrollY ,
+                        left:left+window.window.scrollX,
+                    },
+                    left:{
+                        top:top+(height-height2)/2+window.window.scrollY,
+                        left:left+window.window.scrollX,
+                    },
+                    right:{
+                        top:top+(height-height2)/2+window.window.scrollY ,
+                        left:left+width+window.window.scrollX,
+                    },
+                };
+                contentWrapper.style.left= positions[this.position].left+'px';
+                contentWrapper.style.top=positions[this.position].top +'px';
 
             },
             onClickDocument(e){
