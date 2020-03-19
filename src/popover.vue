@@ -1,6 +1,6 @@
 <template>
     <div class="popover"  ref="popover">
-        <div ref="contentWrapper" v-show="visible" class="content-wrapper"
+        <div ref="contentWrapper" v-if="visible" class="content-wrapper"
         :class="{[`position-${position}`]:true}">
             <slot name="content" :close="close"></slot>
         </div>
@@ -59,7 +59,7 @@
             }
 
         },
-        destroyed(){
+        beforeDestroy(){
             if (this.trigger==='click'){
                 this.$refs.popover.removeEventListener(this.openEvent, this.toggle)
             }else{
