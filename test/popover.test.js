@@ -5,61 +5,55 @@ import Popover from '../src/popover'
 Vue.config.productionTip = false;
 Vue.config.devtools = false;
 
-describe('Popover', () => {
-
-    it('存在.', () => {
+describe('popover', () => {
+    it('存在', () => {
         expect(Popover).to.exist
     })
-
-    it('可以设置position.', (done) => {
+    it('设置position', (done) => {
         Vue.component('g-popover', Popover)
-        const div = document.createElement('div')
+        let div = document.createElement('div')
         document.body.appendChild(div)
         div.innerHTML = `
-    <g-popover position="bottom" ref="a">
-      <template slot="content">
-      弹出内容
-      </template>
-      <button>点我</button>
-    </g-popover>
-    `
+          <g-popover position="left" ref="a">
+            <template slot="content">
+                <div>popover内容popover内容</div>
+            </template>
+                <button>按钮</button>
+          </g-popover>
+        `
         const vm = new Vue({
             el: div
         })
         vm.$el.querySelector('button').click()
         vm.$nextTick(() => {
-            const {contentWrapper} = vm.$refs.a.$refs;
-
-            expect(contentWrapper.classList.contains('position-bottom')).to.be.true
+            const {contentWrapper} = vm.$refs.a.$refs
+            expect(contentWrapper.classList.contains('position-left')).to.be.true
             done()
         })
     })
-    it('可以设置 trigger', (done) => {
+    it('设置trigger', (done) => {
         Vue.component('g-popover', Popover)
-        const div = document.createElement('div')
+        let div = document.createElement('div')
         document.body.appendChild(div)
         div.innerHTML = `
-    <g-popover trigger="hover" ref="a">
-      <template slot="content">
-      弹出内容
-      </template>
-      <button>点我</button>
-    </g-popover>
-    `;
+          <g-popover  ref="a" trigger="hover">
+            <template slot="content">
+                <div>popover内容popover内容</div>
+            </template>
+                <button>按钮</button>
+        </g-popover>
+        `;
         const vm = new Vue({
             el: div
         });
-            setTimeout(()=>{
-                let event = new Event('mouseenter');
-                 vm.$el.dispatchEvent(event);
-                console.log(vm.innerHtml)
-            setTimeout(() => {
-                console.log(2)
-                // expect(contentWrapper).to.exist;
+            const event=new Event('mouseenter');
+            vm.$refs.a.$el.dispatchEvent(event);
+            vm.$nextTick(()=>{
+                const {contentWrapper} = vm.$refs.a.$refs;
+                expect(contentWrapper.classList.contains('content-wrapper')).to.be.true;
                 done()
-            },200)
-            },0)
+            })
+
 
     })
-
-})
+});
