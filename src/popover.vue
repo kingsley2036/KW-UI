@@ -115,7 +115,6 @@
             },
             toggle(event){
                 if(this.$refs.triggerWrapper.contains(event.target)){
-                    console.log(this.visible);
                     if(this.visible===true){
                         this.close()
                     }else {
