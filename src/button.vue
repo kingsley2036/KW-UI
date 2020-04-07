@@ -32,7 +32,6 @@
 </script>
 
 <style scoped lang="scss">
-
         $button-height: 32px;
         $font-size: 14px;
         $button-bg: white;

@@ -44,13 +44,13 @@ describe('Tabs', () => {
         })
         vm.$nextTick(() => {
             let x = vm.$el.querySelector(`.tabs-item[data-name="finance"]`)
+            let yyy=vm.$el.querySelector(`.tabs-item[data-name="finance"]`)
+            console.log(yyy)
             expect(x.classList.contains('active')).to.be.true
             done()
         })
     })
 
-    it('可以接受 direction prop', () => {
 
-    })
 
 })

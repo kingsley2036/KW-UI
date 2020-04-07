@@ -43,9 +43,7 @@
                 type:Object,
                 validator
             },
-            'fuck-me':{
-                type:String
-            }
+
 
 
         },

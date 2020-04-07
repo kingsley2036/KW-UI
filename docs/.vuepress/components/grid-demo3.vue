@@ -46,7 +46,7 @@
         <p>
             <strong>代码</strong>
         </p>
-        <pre><code>{{content}}</code></pre>
+
     </div>
 </template>
 <style scoped>

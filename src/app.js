@@ -55,7 +55,7 @@ new Vue({
         showToast(position){
             this.$toast('我是信息',{
                 position,
-                delay:2,
+                delay:4,
                 autoClose:true,
                 closeButton:{
                     text: '关闭了',

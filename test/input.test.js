@@ -53,7 +53,7 @@ describe('Input', () => {
         }).$mount();
         const useElement = vm.$el.querySelector('use');
         expect(useElement.getAttribute('xlink:href')).to.equal('#i-error1')
-        // expect(useElement.readOnly).to.equal(true);
+
         const message = vm.$el.querySelector('.errorMessage');
         expect(message.innerText).to.equal('密码不正确');
         vm.$destroy()
@@ -64,17 +64,16 @@ describe('Input', () => {
         let vm;
         afterEach(()=>{
             vm.$destroy()
-        })
+        });
         it('支持事件',()=>{
             ['change','input','focus','blur'].forEach((eventName)=>{
                 vm = new Constructor({}).$mount();
                 const callBack=sinon.fake();
-                vm.$on(eventName,callBack)
-                let event=new Event(eventName)
-                Object.defineProperty(event,'target',{value:{value:'hi'}})
-                let inputElement=vm.$el.querySelector('input')
-                inputElement.dispatchEvent(event)
-
+                vm.$on(eventName,callBack);
+                let event=new Event(eventName);
+                Object.defineProperty(event,'target',{value:{value:'hi'}});
+                let inputElement=vm.$el.querySelector('input');
+                inputElement.dispatchEvent(event);
                 expect(callBack).to.have.been.calledWith('hi')
             })
 

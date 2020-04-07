@@ -33,9 +33,9 @@
                 let selectCopy=JSON.parse(JSON.stringify(this.selected));
                 let index=selectCopy.indexOf(name);
                 selectCopy.splice(index,1);
-                this.$emit('update:selected',name);
-                this.eventBus.$emit('update:selected',selectCopy);
-                this.$emit('update:selected',selectCopy)
+                this.eventBus.$emit('update:selected',selectCopy);//更新eventBus上的selected
+                this.$emit('update:selected',selectCopy);//跟新外部html上的selected
+                // this.$nextTick(()=>{console.log(this.selected)})
             });
             this.eventBus.$on('update:addSelected',(name)=>{
                 let selectCopy=JSON.parse(JSON.stringify(this.selected));
@@ -46,6 +46,7 @@
                 }
                 this.eventBus.$emit('update:selected',selectCopy);//通知子组件状态变更
                 this.$emit('update:selected',selectCopy)//通知外部状态变更
+                // this.$nextTick(()=>{console.log(this.selected)})
             });
 
 

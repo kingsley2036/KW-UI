@@ -42,7 +42,7 @@
         },
         mounted() {
            this.updateStyle();
-           this.execAutoClose()
+           this.execAutoClose();
         },
         created(){
 
@@ -55,7 +55,6 @@
         methods: {
             execAutoClose(){
                 let time=this.delay * 1000;
-
                 if (this.autoClose) {
                     setTimeout(() => {
                         this.close()
@@ -71,12 +70,13 @@
             },
             close() {
                 this.$el.remove();
+                // this.$emit('beforeClose');
                 this.$destroy();
             },
             onclickClose(){
                 this.close();
                 if( this.closeButton && typeof  this.closeButton.callback==='function'){
-                    console.log('执行了回调');
+
                     this.closeButton.callback();
                 }
 
@@ -142,7 +142,6 @@
         }
     }
     .toast {
-
         font-size: $font-size;
         min-height:$toast-min-height;
         background: $toast-bg;

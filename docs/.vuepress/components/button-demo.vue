@@ -6,13 +6,13 @@
         </p>
                 <g-button>默认按钮</g-button>
         <g-button icon="settings">图标按钮</g-button>
-        <g-button :isLoading="true">加载按钮</g-button>
+        <g-button :isLoading="loading" @click="changeLoading">加载按钮</g-button>
         <g-button disabled>禁用按钮</g-button>
 
         <p>
             <strong>代码</strong>
         </p>
-        <pre><code>{{content}}</code></pre>
+<!--        <pre><code>{{content}}</code></pre>-->
     </div>
 </template>
 <script>
@@ -25,13 +25,12 @@
         },
         data () {
             return {
-                content: `
-          <g-button>默认按钮</g-button>
-    <g-button icon="settings">图标按钮</g-button>
-    <g-button :isLoading="true">加载按钮</g-button>
-    <g-button disabled>禁用按钮</g-button>
-
-      `.replace(/^ {8}/gm, '').trim()
+                loading:true
+            }
+        },
+        methods:{
+            changeLoading(){
+                this.loading=!this.loading
             }
         }
     }

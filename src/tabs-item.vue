@@ -1,5 +1,6 @@
 <template>
-    <div class="tabs-item" @click="onClick" :class="classes" :data-name="name">
+    <div class="tabs-item" @click="onClick" :class="classes" :data-name="name"
+         >
         <slot></slot>
     </div>
 </template>
@@ -19,12 +20,16 @@
             },
             name:{
                 type:String,
+            },
+            fuck:{
+                type:String,
             }
         },
         inject:['eventBus'],
         created() {
             if(this.eventBus){
                 this.eventBus.$on('update:selected',(name)=>{
+
                     this.active = name === this.name;
                 })
             }

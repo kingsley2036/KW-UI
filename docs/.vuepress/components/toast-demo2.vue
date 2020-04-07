@@ -12,7 +12,7 @@
         <p>
             <strong>代码</strong>
         </p>
-        <pre><code>{{content}}</code></pre>
+<!--        <pre><code>{{content}}</code></pre>-->
     </div>
 </template>
 <style>
@@ -61,6 +61,8 @@
         methods: {
             onClickButton () {
                 this.$toast('你知道我在等你吗？', {
+                    delay:5,
+                    autoClose:true,
                     closeButton: {
                         text: '知道了',
                         callback: () => {

@@ -10,7 +10,7 @@ describe('toast', () => {
         expect(Toast).to.be.ok
     });
     describe('props',()=>{
-        // this.timeout(6000)
+
         it('接受autoClose',(done)=>{
             let div=document.createElement('div');
             document.body.appendChild(div);

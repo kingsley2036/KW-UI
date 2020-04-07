@@ -3,7 +3,6 @@ module.exports = {
     base:'/KW-UI/',
     description: 'Just playing around',
     themeConfig: {
-
         sidebar: [{
             title: '入门',
             children: [

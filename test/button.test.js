@@ -68,7 +68,7 @@ describe('Button', () => {
             propsData: {
                 icon: 'settings',
             }
-        }).$mount()
+        }).$mount();
 
         const callback = sinon.fake();
         vm.$on('click', callback)

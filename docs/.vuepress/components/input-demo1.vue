@@ -7,11 +7,11 @@
         <g-input value="中文"></g-input>
         <g-input value="中文" disabled></g-input>
         <g-input value="中文" readonly></g-input>
-        <g-input style="margin-top: 10px" error="密码输入错误"></g-input>
+        <g-input style="margin-top: 10px" error="密码输入错误" icon="error1"></g-input>
         <p>
             <strong>代码</strong>
         </p>
-        <pre><code>{{content}}</code></pre>
+<!--        <pre><code>{{content}}</code></pre>-->
     </div>
 </template>
 <script>

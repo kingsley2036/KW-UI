@@ -6,8 +6,7 @@
                @focus="$emit('focus',$event.target.value)"
                @blur="$emit('blur',$event.target.value)">
         <template v-if="error">
-<!--            <g-icon name="settings"></g-icon>-->
-            <icon name="error1" class="icon-error"></icon>
+            <icon :name="icon" class="icon-error"></icon>
             <span class="errorMessage">{{error}}</span>
         </template>
     </div>
@@ -24,15 +23,18 @@
             'value':{
                 type:String,
             },
-            'disabled':{
+            disabled:{
                 type:Boolean,
                 default:false
             },
-            'readonly':{
+            readonly:{
                 type:Boolean,
                 default:false
             },
-            'error':{
+            error:{
+                type:String,
+            },
+            icon:{
                 type:String,
             }
         }
