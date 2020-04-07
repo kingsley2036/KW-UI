@@ -6,7 +6,6 @@ title:input
 
 <ClientOnly>
  <input-demo1></input-demo1>
- 
  ::: details 点击查看代码
  ```html
   <g-input value="中文"></g-input>
