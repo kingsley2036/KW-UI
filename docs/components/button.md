@@ -16,6 +16,21 @@ title:button
  :::
 </ClientOnly>
 
+<ClientOnly>
+<button-groupdemo></button-groupdemo>
+
+ ::: details 点击查看代码
+ ```html
+  <g-button-group>
+     <g-button icon="left">上一页</g-button>
+     <g-button>更多</g-button>
+     <g-button icon="right" icon-position="right">下一页</g-button>
+  </g-button-group>
+ ```
+ :::
+
+</ClientOnly>
+
 <button-attributes></button-attributes>
 
 
