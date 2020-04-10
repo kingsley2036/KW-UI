@@ -51,13 +51,23 @@ describe('Input', () => {
                 error:'密码不正确'
             }
         }).$mount();
-        const useElement = vm.$el.querySelector('use');
-        expect(useElement.getAttribute('xlink:href')).to.equal('#i-error1')
-
         const message = vm.$el.querySelector('.errorMessage');
         expect(message.innerText).to.equal('密码不正确');
         vm.$destroy()
     });
+        it('可以设置icon', () => {
+            const Constructor = Vue.extend(Input);
+            const vm = new Constructor({
+                propsData: {
+                    icon:'error1',
+                    error:'用户名不正确'
+                }
+            }).$mount();
+            const useElement = vm.$el.querySelector('use');
+            expect(useElement.getAttribute('xlink:href')).to.equal('#i-error1');
+            vm.$destroy()
+        });
+
     });
     describe('events',()=>{
         const Constructor = Vue.extend(Input);
